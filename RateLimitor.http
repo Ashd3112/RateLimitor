@@ -1,0 +1,16 @@
+@RateLimitor_HostAddress = http://localhost:5088
+
+### Test Default Policy Endpoint (Limit: 3 requests/10s)
+GET {{RateLimitor_HostAddress}}/api/default
+X-Client-Id: default_user_test
+Accept: application/json
+
+### Test Premium Policy Endpoint (Limit: 10 requests/10s)
+GET {{RateLimitor_HostAddress}}/api/premium
+X-Client-Id: premium_user_test
+Accept: application/json
+
+### Test Default Policy Endpoint (using Client IP fallback)
+GET {{RateLimitor_HostAddress}}/api/default
+Accept: application/json
+
